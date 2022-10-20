@@ -5,20 +5,23 @@ import AppNavigator from "./AppNavigator";
 import AuthNavigator from "./AuthNavigator";
 
 export default function Navigation() {
-  return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
-  );
+	return (
+		<NavigationContainer>
+			<RootNavigator />
+		</NavigationContainer>
+	);
 }
 
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Auth" component={AuthNavigator} />
-      <Stack.Screen name="App" component={AppNavigator} />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator
+			screenOptions={{ headerShown: false }}
+			initialRouteName="App"
+		>
+			<Stack.Screen name="Auth" component={AuthNavigator} />
+			<Stack.Screen name="App" component={AppNavigator} />
+		</Stack.Navigator>
+	);
 }
